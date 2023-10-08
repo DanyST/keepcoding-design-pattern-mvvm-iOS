@@ -41,9 +41,19 @@ final class HomeViewModel {
         return genre
     }
     
+    private func sizeString(by imageSize: ImageSize) -> String {
+        switch imageSize {
+        case let .poster(posterSize):
+            return posterSize.rawValue
+        case let .backdrop(backgropSize):
+            return backgropSize.rawValue
+        }
+    }
+    
     private func imageUrl(at path: String, size: ImageSize) -> String? {
+        let sizeString = sizeString(by: size)
         var imageUrl = URL(string: Constants.imageBaseUrl)
-        imageUrl?.append(path: size.rawValue)
+        imageUrl?.append(path: sizeString)
         imageUrl?.append(path: path)
         return imageUrl?.absoluteString
     }
@@ -67,8 +77,8 @@ extension HomeViewModel: HomeViewModelProtocol {
             title: movie.title,
             genre: genre(at: movie),
             overview: movie.overview,
-            posterUrl: imageUrl(at: movie.posterPath, size: .w300),
-            backdropUrl: imageUrl(at: movie.backdropPath, size: .w600),
+            posterUrl: imageUrl(at: movie.posterPath, size: .poster(.w185)),
+            backdropUrl: imageUrl(at: movie.backdropPath, size: .backdrop(.w780)),
             releaseDate: movie.releaseDate,
             voteAverage: movie.voteAverage
         )
@@ -82,7 +92,7 @@ extension HomeViewModel: HomeViewModelProtocol {
         return HomeCellModel(
             title: movie.title,
             genre: genre(at: movie),
-            image: imageUrl(at: movie.posterPath, size: .w200)
+            image: imageUrl(at: movie.posterPath, size: .poster(.w185))
         )
     }
     
