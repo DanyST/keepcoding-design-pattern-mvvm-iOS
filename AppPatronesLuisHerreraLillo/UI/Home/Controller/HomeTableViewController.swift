@@ -53,8 +53,8 @@ final class HomeTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        if let data = viewModel.data(at: indexPath.row) {
-            cell.updateViews(model: HomeCellModel(title: data.title, genre: data.genreTypes?.first??.title, image: data.posterPath))
+        if let data = viewModel.movieCell(at: indexPath.row) {
+            cell.updateViews(model: data)
         }
         
         return cell

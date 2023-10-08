@@ -10,7 +10,7 @@ import Foundation
 protocol HomeViewModelProtocol {
     var title: String { get }
     var dataCount: Int { get }
-    func data(at index: Int) -> Movie?
+    func movieCell(at index: Int) -> HomeCellModel?
     func onViewsLoaded()
     func onItemSelected(at index: Int)
 }
@@ -24,6 +24,13 @@ final class HomeViewModel {
         viewData = MovieRepository.local.movies
         viewDelegate?.updateViews()
     }
+    
+    private func movie(at index: Int) -> Movie? {
+        guard index < viewData.count else {
+            return nil
+        }
+        return viewData[index]
+    }
 }
 
 extension HomeViewModel: HomeViewModelProtocol {
@@ -36,17 +43,25 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
     
     func onItemSelected(at index: Int) {
-        guard let data = data(at: index) else {
+        guard let data = movie(at: index) else {
             return
         }
         viewDelegate?.navigateToDetail(with: data)
     }
     
-    func data(at index: Int) -> Movie? {
-        guard index < viewData.count else {
+    func movieCell(at index: Int) -> HomeCellModel? {
+        guard let movie = movie(at: index) else {
             return nil
         }
-        return viewData[index]
+        var url = URL(string: Constants.imageBaseUrl)
+        url?.append(path: ImageSize.w200.rawValue)
+        url?.append(path: movie.posterPath)
+        
+        return HomeCellModel(
+            title: movie.title,
+            genre: movie.genreTypes?.first??.title,
+            image: url?.absoluteString
+        )
     }
     
     func onViewsLoaded() {
