@@ -7,8 +7,24 @@
 
 import Foundation
 
-enum ImageSize: String {
-    case w200
+enum PosterImageSize: String {
+    case w92
+    case w154
+    case w185
+    case w32
+    case w500
+    case w780
+    case original
+}
+
+enum BackDropImageSize: String {
     case w300
-    case w600
+    case w780
+    case w1280
+    case original
+}
+
+enum ImageSize {
+    case poster(PosterImageSize)
+    case backdrop(BackDropImageSize)
 }
