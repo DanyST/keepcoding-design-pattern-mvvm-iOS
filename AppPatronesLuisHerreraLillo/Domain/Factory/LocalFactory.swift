@@ -13,14 +13,24 @@ protocol MovieFactory {
     var movies: Movies { get }
 }
 
-final class LocalFactory: MovieFactory {
-    var movies: Movies {
-        guard let file = Bundle.main.url(forResource: "movies", withExtension: "json") else {
-            return []
+final class LocalFactory {
+    private func getJSONModel<T: Decodable>(_ modelType: T.Type, resource: String) throws -> T? {
+        guard let file = Bundle.main.url(forResource: resource, withExtension: "json") else {
+            return nil
         }
+        
+        let data = try Data(contentsOf: file)
+        let model = try JSONDecoder().decode(modelType, from: data)
+        return model
+    }
+}
+
+extension LocalFactory: MovieFactory {
+    var movies: Movies {
         do {
-            let data = try Data(contentsOf: file)
-            let movies = try JSONDecoder().decode(Movies.self, from: data)
+            guard let movies = try getJSONModel(Movies.self, resource: "movies") else {
+                return []
+            }
             return movies
         } catch {
             return []
