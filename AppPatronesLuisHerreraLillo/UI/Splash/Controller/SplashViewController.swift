@@ -47,7 +47,8 @@ final class SplashViewController: UIViewController {
 // MARK: - SplashViewProtocol
 extension SplashViewController: SplashViewProtocol {
     func navigateToHome() {
-        print("navigateToHome")
+        let nextVC = HomeTableViewController()
+        navigationController?.setViewControllers([nextVC], animated: true)
     }
     
     func setLoading(_ show: Bool) {
