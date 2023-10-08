@@ -29,6 +29,9 @@
 		766785BC2AD288BC00439DCA /* UIImage+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785BB2AD288BC00439DCA /* UIImage+Remote.swift */; };
 		766785BE2AD2910100439DCA /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785BD2AD2910100439DCA /* ImageSize.swift */; };
 		766785C12AD2928A00439DCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C02AD2928A00439DCA /* Constants.swift */; };
+		766785C52AD2991800439DCA /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C32AD2991800439DCA /* MovieDetailViewController.swift */; };
+		766785C62AD2991800439DCA /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766785C42AD2991800439DCA /* MovieDetailViewController.xib */; };
+		766785C82AD2992B00439DCA /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C72AD2992B00439DCA /* MovieDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		766785BB2AD288BC00439DCA /* UIImage+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Remote.swift"; sourceTree = "<group>"; };
 		766785BD2AD2910100439DCA /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		766785C02AD2928A00439DCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		766785C32AD2991800439DCA /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		766785C42AD2991800439DCA /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		766785C72AD2992B00439DCA /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 		7667858C2AD25AB500439DCA /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				766785C22AD298FA00439DCA /* Detail */,
 				766785952AD264A100439DCA /* Home */,
 				7667858A2AD2596800439DCA /* Splash */,
 			);
@@ -283,6 +290,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		766785C22AD298FA00439DCA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				766785C92AD29A6100439DCA /* Models */,
+				766785C32AD2991800439DCA /* MovieDetailViewController.swift */,
+				766785C42AD2991800439DCA /* MovieDetailViewController.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		766785C92AD29A6100439DCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				766785C72AD2992B00439DCA /* MovieDetail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,6 +366,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766785C62AD2991800439DCA /* MovieDetailViewController.xib in Resources */,
 				766785AF2AD2759500439DCA /* movies.json in Resources */,
 				7667859C2AD264DF00439DCA /* HomeTableViewController.xib in Resources */,
 				766785812AD2518F00439DCA /* LaunchScreen.storyboard in Resources */,
@@ -360,9 +386,11 @@
 				766785B72AD2819800439DCA /* HomeCellModel.swift in Sources */,
 				766785A82AD273B300439DCA /* MovieRepository.swift in Sources */,
 				766785A02AD2654900439DCA /* HomeTableViewCell.swift in Sources */,
+				766785C82AD2992B00439DCA /* MovieDetail.swift in Sources */,
 				766785B12AD2766700439DCA /* MovieGenre.swift in Sources */,
 				7667858F2AD25AE900439DCA /* SplashViewController.swift in Sources */,
 				766785752AD2518E00439DCA /* AppDelegate.swift in Sources */,
+				766785C52AD2991800439DCA /* MovieDetailViewController.swift in Sources */,
 				766785772AD2518E00439DCA /* SceneDelegate.swift in Sources */,
 				766785C12AD2928A00439DCA /* Constants.swift in Sources */,
 				766785BC2AD288BC00439DCA /* UIImage+Remote.swift in Sources */,
