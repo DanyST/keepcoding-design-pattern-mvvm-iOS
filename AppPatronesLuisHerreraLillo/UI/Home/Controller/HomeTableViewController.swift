@@ -9,13 +9,14 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     func updateViews()
-    func navigateToDetail(with movie: Movie)
+    func navigateToDetail(with movieDetail: MovieDetail)
 }
 
 final class HomeTableViewController: UITableViewController {
-    
+    // MARK: - Properties
     private let viewModel: HomeViewModelProtocol
     
+    // MARK: - Initialization
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -25,21 +26,28 @@ final class HomeTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        setupTableView()
         registerCells()
         viewModel.onViewsLoaded()
+    }
+    
+    private func setupTableView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
     
     private func registerCells() {
         let nib = UINib(nibName: "\(HomeTableViewCell.self)", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: HomeTableViewCell.reuseIdentifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
     }
+}
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
+extension HomeTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -53,25 +61,30 @@ final class HomeTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        if let data = viewModel.movieCell(at: indexPath.row) {
-            cell.updateViews(model: data)
+        if let cellModel = viewModel.movieCellModel(at: indexPath.row) {
+            cell.updateViews(model: cellModel)
         }
         
         return cell
     }
-    
+}
+
+// MARK: - Table view delegate
+extension HomeTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.onItemSelected(at: indexPath.row)
     }
 }
 
+// MARK: - HomeViewProtocol
 extension HomeTableViewController: HomeViewProtocol {
     func updateViews() {
         tableView.reloadData()
     }
     
-    func navigateToDetail(with movie: Movie) {
-        print("navigateToDetail: \(movie.title)")
+    func navigateToDetail(with movieDetail: MovieDetail) {
+        let nextVC = MovieDetailViewController()
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }

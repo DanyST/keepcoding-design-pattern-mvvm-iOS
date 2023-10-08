@@ -13,6 +13,7 @@ final class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var homeImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         homeImageView.layer.cornerRadius = 8.0
@@ -26,6 +27,8 @@ final class HomeTableViewCell: UITableViewCell {
         homeImageView.image = nil
     }
     
+    
+    // MARK: - Update View
     func updateViews(model: HomeCellModel) {
         update(genre: model.genre)
         update(image: model.image)
