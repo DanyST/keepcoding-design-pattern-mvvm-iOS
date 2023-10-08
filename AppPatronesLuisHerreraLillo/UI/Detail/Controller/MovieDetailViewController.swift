@@ -19,13 +19,49 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewTextView: UITextView!
     
     // MARK: - Properties
+    private let viewModel: MovieDetailViewModelProtocol
     
+    // MARK: - Initialization
+    init(viewModel: MovieDetailViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = ""
+        configureNavigationBar()
+        configureTextView()
+        viewModel.onViewsLoaded()
+    }
+    
+    private func configureTextView() {
+        overviewTextView.isEditable = false
+        overviewTextView.isSelectable = false
+    }
+    
+    private func configureNavigationBar() {
+        let image = UIImage(systemName: "chevron.backward.circle.fill")?
+           .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+        navigationItem.leftBarButtonItem =  UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(didTapNavigationButton)
+        )
+    }
+    
+    @objc
+    private func didTapNavigationButton() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -36,6 +72,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
         update(rating: detail.voteAverage)
         update(title: detail.title)
         update(genre: detail.genre)
+        update(overview: detail.overview)
     }
 }
 
@@ -60,5 +97,9 @@ private extension MovieDetailViewController {
     
     func update(genre: String?) {
         genreLabel.text = genre ?? ""
+    }
+    
+    func update(overview: String?) {
+        overviewTextView.text = overview ?? ""
     }
 }

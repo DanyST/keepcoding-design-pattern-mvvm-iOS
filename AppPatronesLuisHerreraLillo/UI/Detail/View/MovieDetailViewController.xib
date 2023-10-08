@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="genreLabel" destination="4gB-pt-j05" id="eLy-N7-ngu"/>
                 <outlet property="imageView" destination="SDo-8c-U6V" id="Eyd-4J-IUF"/>
+                <outlet property="overviewTextView" destination="9eh-Sp-Egd" id="qkw-ew-qYs"/>
                 <outlet property="ratingLabel" destination="sak-iN-vbk" id="UJJ-Cp-ZKL"/>
                 <outlet property="titleLabel" destination="5R8-iM-m4W" id="NI8-fj-duG"/>
                 <outlet property="topImageView" destination="C5w-ke-rEZ" id="C0w-Nb-HG3"/>
@@ -23,8 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C5w-ke-rEZ">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C5w-ke-rEZ">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="f4k-lQ-dX7"/>
                     </constraints>
@@ -34,6 +36,7 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SDo-8c-U6V">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="vAS-8t-fns"/>
                                 <constraint firstAttribute="width" constant="100" id="vPW-Ni-JwY"/>
@@ -94,8 +97,8 @@
                 <constraint firstItem="9eh-Sp-Egd" firstAttribute="top" secondItem="BjF-zd-nWX" secondAttribute="bottom" constant="12" id="9bS-Sb-sxE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9eh-Sp-Egd" secondAttribute="bottom" id="FfA-2P-ovS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9eh-Sp-Egd" secondAttribute="trailing" constant="12" id="I6H-lI-ihk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="C5w-ke-rEZ" secondAttribute="trailing" id="MwZ-Fm-e5m"/>
-                <constraint firstItem="C5w-ke-rEZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fXF-Xh-SRw"/>
+                <constraint firstAttribute="trailing" secondItem="C5w-ke-rEZ" secondAttribute="trailing" id="MwZ-Fm-e5m"/>
+                <constraint firstItem="C5w-ke-rEZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fXF-Xh-SRw"/>
                 <constraint firstItem="C5w-ke-rEZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qcL-DW-AbY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BjF-zd-nWX" secondAttribute="trailing" constant="12" id="sny-l5-E3f"/>
                 <constraint firstItem="BjF-zd-nWX" firstAttribute="top" secondItem="C5w-ke-rEZ" secondAttribute="bottom" constant="12" id="srC-ko-C6l"/>
