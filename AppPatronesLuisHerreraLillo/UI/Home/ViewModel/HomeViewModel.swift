@@ -10,16 +10,17 @@ import Foundation
 protocol HomeViewModelProtocol {
     var title: String { get }
     var dataCount: Int { get }
-    func movieCell(at index: Int) -> HomeCellModel?
+    func movieCellModel(at index: Int) -> HomeCellModel?
     func onViewsLoaded()
     func onItemSelected(at index: Int)
 }
 
 final class HomeViewModel {
+    // MARK: - Properties
     weak var viewDelegate: HomeViewProtocol?
-    
     private var viewData = Movies()
     
+    // MARK: - Private Methods
     private func loadData() {
         viewData = MovieRepository.local.movies
         viewDelegate?.updateViews()
@@ -31,8 +32,24 @@ final class HomeViewModel {
         }
         return viewData[index]
     }
+    
+    private func genre(at movie: Movie) -> String? {
+        let genre = movie.genreTypes?
+            .compactMap { $0?.title }
+            .joined(separator: ", ")
+        
+        return genre
+    }
+    
+    private func imageUrl(at path: String, size: ImageSize) -> String? {
+        var imageUrl = URL(string: Constants.imageBaseUrl)
+        imageUrl?.append(path: size.rawValue)
+        imageUrl?.append(path: path)
+        return imageUrl?.absoluteString
+    }
 }
 
+// MARK: - HomeViewModelProtocol
 extension HomeViewModel: HomeViewModelProtocol {
     var title: String {
         "Discover Movies"
@@ -43,24 +60,29 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
     
     func onItemSelected(at index: Int) {
-        guard let data = movie(at: index) else {
+        guard let movie = movie(at: index) else {
             return
         }
-        viewDelegate?.navigateToDetail(with: data)
+        let movieDetail = MovieDetail(
+            title: movie.title,
+            genre: genre(at: movie),
+            overview: movie.overview,
+            posterUrl: imageUrl(at: movie.posterPath, size: .w300),
+            backdropUrl: imageUrl(at: movie.backdropPath, size: .w600),
+            releaseDate: movie.releaseDate,
+            voteAverage: movie.voteAverage
+        )
+        viewDelegate?.navigateToDetail(with: movieDetail)
     }
     
-    func movieCell(at index: Int) -> HomeCellModel? {
+    func movieCellModel(at index: Int) -> HomeCellModel? {
         guard let movie = movie(at: index) else {
             return nil
-        }
-        var url = URL(string: Constants.imageBaseUrl)
-        url?.append(path: ImageSize.w200.rawValue)
-        url?.append(path: movie.posterPath)
-        
+        }    
         return HomeCellModel(
             title: movie.title,
-            genre: movie.genreTypes?.first??.title,
-            image: url?.absoluteString
+            genre: genre(at: movie),
+            image: imageUrl(at: movie.posterPath, size: .w200)
         )
     }
     
