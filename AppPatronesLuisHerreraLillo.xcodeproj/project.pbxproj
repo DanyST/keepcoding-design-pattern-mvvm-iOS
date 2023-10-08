@@ -52,13 +52,37 @@
 		766785732AD2518E00439DCA /* AppPatronesLuisHerreraLillo */ = {
 			isa = PBXGroup;
 			children = (
-				766785742AD2518E00439DCA /* AppDelegate.swift */,
-				766785762AD2518E00439DCA /* SceneDelegate.swift */,
-				7667857D2AD2518F00439DCA /* Assets.xcassets */,
-				7667857F2AD2518F00439DCA /* LaunchScreen.storyboard */,
 				766785822AD2518F00439DCA /* Info.plist */,
+				766785892AD2595E00439DCA /* App */,
+				766785882AD2595200439DCA /* Resources */,
+				7667858A2AD2596800439DCA /* Splash */,
 			);
 			path = AppPatronesLuisHerreraLillo;
+			sourceTree = "<group>";
+		};
+		766785882AD2595200439DCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7667857D2AD2518F00439DCA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		766785892AD2595E00439DCA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				766785742AD2518E00439DCA /* AppDelegate.swift */,
+				766785762AD2518E00439DCA /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7667858A2AD2596800439DCA /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				7667857F2AD2518F00439DCA /* LaunchScreen.storyboard */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
