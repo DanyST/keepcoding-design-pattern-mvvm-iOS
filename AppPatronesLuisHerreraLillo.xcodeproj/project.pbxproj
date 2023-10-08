@@ -32,6 +32,7 @@
 		766785C52AD2991800439DCA /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C32AD2991800439DCA /* MovieDetailViewController.swift */; };
 		766785C62AD2991800439DCA /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 766785C42AD2991800439DCA /* MovieDetailViewController.xib */; };
 		766785C82AD2992B00439DCA /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C72AD2992B00439DCA /* MovieDetail.swift */; };
+		766785CE2AD3418500439DCA /* MoviewDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785CD2AD3418500439DCA /* MoviewDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		766785C32AD2991800439DCA /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		766785C42AD2991800439DCA /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		766785C72AD2992B00439DCA /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		766785CD2AD3418500439DCA /* MoviewDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +171,7 @@
 		766785952AD264A100439DCA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				766785BF2AD2921500439DCA /* Model */,
+				766785BF2AD2921500439DCA /* Models */,
 				766785982AD264BE00439DCA /* ViewModel */,
 				766785972AD264B900439DCA /* Controller */,
 				766785962AD264B500439DCA /* View */,
@@ -282,20 +284,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		766785BF2AD2921500439DCA /* Model */ = {
+		766785BF2AD2921500439DCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				766785B62AD2819800439DCA /* HomeCellModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		766785C22AD298FA00439DCA /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				766785CC2AD33AB300439DCA /* ViewModel */,
+				766785CB2AD33AAF00439DCA /* View */,
+				766785CA2AD33AAA00439DCA /* Controller */,
 				766785C92AD29A6100439DCA /* Models */,
-				766785C32AD2991800439DCA /* MovieDetailViewController.swift */,
-				766785C42AD2991800439DCA /* MovieDetailViewController.xib */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -306,6 +309,30 @@
 				766785C72AD2992B00439DCA /* MovieDetail.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		766785CA2AD33AAA00439DCA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				766785C32AD2991800439DCA /* MovieDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		766785CB2AD33AAF00439DCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				766785C42AD2991800439DCA /* MovieDetailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		766785CC2AD33AB300439DCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				766785CD2AD3418500439DCA /* MoviewDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +421,7 @@
 				766785772AD2518E00439DCA /* SceneDelegate.swift in Sources */,
 				766785C12AD2928A00439DCA /* Constants.swift in Sources */,
 				766785BC2AD288BC00439DCA /* UIImage+Remote.swift in Sources */,
+				766785CE2AD3418500439DCA /* MoviewDetailViewModel.swift in Sources */,
 				766785AB2AD2751200439DCA /* LocalFactory.swift in Sources */,
 				766785B52AD27DB000439DCA /* HomeViewModel.swift in Sources */,
 				766785942AD25D4C00439DCA /* SplashViewModel.swift in Sources */,
