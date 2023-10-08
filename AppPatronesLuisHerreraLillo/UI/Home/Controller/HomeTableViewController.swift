@@ -84,7 +84,9 @@ extension HomeTableViewController: HomeViewProtocol {
     }
     
     func navigateToDetail(with movieDetail: MovieDetail) {
-        let nextVC = MovieDetailViewController()
+        let viewModel = MovieDetailViewModel(movieDetail: movieDetail)
+        let nextVC = MovieDetailViewController(viewModel: viewModel)
+        viewModel.viewDelegate = nextVC
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }
