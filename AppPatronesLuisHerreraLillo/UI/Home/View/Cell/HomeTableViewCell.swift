@@ -24,10 +24,10 @@ final class HomeTableViewCell: UITableViewCell {
         homeImageView.image = nil
     }
     
-    func updateViews() {
-        update(genre: "Action")
-        update(image: "")
-        update(title: "Gran Turismo")
+    func updateViews(model: HomeCellModel) {
+        update(genre: model.genre)
+        update(image: model.image)
+        update(title: model.title)
     }
     
     private func update(genre: String?) {
