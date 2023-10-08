@@ -15,6 +15,8 @@ final class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        homeImageView.layer.cornerRadius = 8.0
+        homeImageView.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
@@ -39,7 +41,8 @@ final class HomeTableViewCell: UITableViewCell {
     }
     
     private func update(image: String?) {
-        homeImageView.image = UIImage(systemName: "star")
+        guard let url = URL(string: image ?? "") else { return }
+        homeImageView.setImage(for: url)
     }
 }
 
