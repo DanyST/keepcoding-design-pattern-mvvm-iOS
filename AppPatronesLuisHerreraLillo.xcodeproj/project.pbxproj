@@ -26,6 +26,9 @@
 		766785B32AD278E400439DCA /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785B22AD278E400439DCA /* Movie.swift */; };
 		766785B52AD27DB000439DCA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785B42AD27DB000439DCA /* HomeViewModel.swift */; };
 		766785B72AD2819800439DCA /* HomeCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785B62AD2819800439DCA /* HomeCellModel.swift */; };
+		766785BC2AD288BC00439DCA /* UIImage+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785BB2AD288BC00439DCA /* UIImage+Remote.swift */; };
+		766785BE2AD2910100439DCA /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785BD2AD2910100439DCA /* ImageSize.swift */; };
+		766785C12AD2928A00439DCA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766785C02AD2928A00439DCA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		766785B22AD278E400439DCA /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		766785B42AD27DB000439DCA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		766785B62AD2819800439DCA /* HomeCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellModel.swift; sourceTree = "<group>"; };
+		766785BB2AD288BC00439DCA /* UIImage+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Remote.swift"; sourceTree = "<group>"; };
+		766785BD2AD2910100439DCA /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
+		766785C02AD2928A00439DCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +91,8 @@
 				766785822AD2518F00439DCA /* Info.plist */,
 				766785892AD2595E00439DCA /* App */,
 				766785882AD2595200439DCA /* Resources */,
+				766785B92AD2889C00439DCA /* Commons */,
 				766785A52AD272B100439DCA /* Domain */,
-				766785A22AD26D8F00439DCA /* Protocols */,
 				7667858C2AD25AB500439DCA /* UI */,
 			);
 			path = AppPatronesLuisHerreraLillo;
@@ -156,6 +162,7 @@
 		766785952AD264A100439DCA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				766785BF2AD2921500439DCA /* Model */,
 				766785982AD264BE00439DCA /* ViewModel */,
 				766785972AD264B900439DCA /* Controller */,
 				766785962AD264B500439DCA /* View */,
@@ -193,7 +200,6 @@
 			children = (
 				7667859E2AD2654900439DCA /* HomeTableViewCell.swift */,
 				7667859F2AD2654900439DCA /* HomeTableViewCell.xib */,
-				766785B62AD2819800439DCA /* HomeCellModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 			children = (
 				766785B02AD2766700439DCA /* MovieGenre.swift */,
 				766785B22AD278E400439DCA /* Movie.swift */,
+				766785BD2AD2910100439DCA /* ImageSize.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +255,32 @@
 				766785AE2AD2759500439DCA /* movies.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		766785B92AD2889C00439DCA /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				766785C02AD2928A00439DCA /* Constants.swift */,
+				766785BA2AD288AC00439DCA /* Extensions */,
+				766785A22AD26D8F00439DCA /* Protocols */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		766785BA2AD288AC00439DCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				766785BB2AD288BC00439DCA /* UIImage+Remote.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		766785BF2AD2921500439DCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				766785B62AD2819800439DCA /* HomeCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,11 +364,14 @@
 				7667858F2AD25AE900439DCA /* SplashViewController.swift in Sources */,
 				766785752AD2518E00439DCA /* AppDelegate.swift in Sources */,
 				766785772AD2518E00439DCA /* SceneDelegate.swift in Sources */,
+				766785C12AD2928A00439DCA /* Constants.swift in Sources */,
+				766785BC2AD288BC00439DCA /* UIImage+Remote.swift in Sources */,
 				766785AB2AD2751200439DCA /* LocalFactory.swift in Sources */,
 				766785B52AD27DB000439DCA /* HomeViewModel.swift in Sources */,
 				766785942AD25D4C00439DCA /* SplashViewModel.swift in Sources */,
 				766785A42AD26DE100439DCA /* ReusableView.swift in Sources */,
 				766785B32AD278E400439DCA /* Movie.swift in Sources */,
+				766785BE2AD2910100439DCA /* ImageSize.swift in Sources */,
 				7667859B2AD264DF00439DCA /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
