@@ -8,7 +8,6 @@
 import Foundation
 
 protocol MovieDetailViewModelProtocol {
-    var title: String { get }
     func onViewsLoaded()
 }
 
@@ -22,16 +21,14 @@ final class MovieDetailViewModel {
         self.movieDetail = movieDetail
     }
     
+    // MARK: - Private Methods
     private func loadData() {
         viewDelegate?.updateViews(with: movieDetail)
     }
 }
 
+// MARK: - MovieDetailViewModelProtocol
 extension MovieDetailViewModel: MovieDetailViewModelProtocol {
-    var title: String {
-        movieDetail.title
-    }
-    
     func onViewsLoaded() {
         loadData()
     }
